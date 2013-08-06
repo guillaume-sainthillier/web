@@ -16,6 +16,6 @@ Vous trouverez ainsi dans l'ordre:
   - TP8 Menu Magique: Découverte des évènements CSS 
   - TP9 PHP: Découverte du PHP
   - TP9 Calculatrice: Développement d'une calculatrice en JavaScript
-  - 
-  
+
+
 Retrouvez la procédure d'installation de l'application sur http://guillaume-sainthillier.github.io/tp-web-blagnac/
