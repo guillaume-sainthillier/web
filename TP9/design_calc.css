@@ -1,0 +1,54 @@
+body
+{
+	margin-left:35%;
+	margin-top:5%;
+}
+
+#contenu
+{
+	background-color:lightgreen;
+	border:2px dashed red;
+	position:absolute;
+}
+
+#calcul
+{
+	margin:auto;
+	padding:3px;
+	float:left;
+	width: 250px;
+}
+
+.bouton
+{
+	width:40px;
+	height:30px;
+	margin:2px;
+}
+
+#bouton_0
+{
+	width:89px;
+	margin:2px;
+	height:30px;
+}
+
+#bouton_egal
+{
+	width: 40px;
+	margin:2px;
+	height:64px;
+}
+
+#options
+{
+	float:left;
+	width:50px;
+	padding-top:4px;
+}
+
+#resultat
+{
+	float:right;
+	width:240px;
+}

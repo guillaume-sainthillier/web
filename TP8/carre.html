@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>TP8 Carré Magique</title>
+    <meta name="generator" content="CSE HTML Validator Professional (http://www.htmlvalidator.com/)" />
+    <style type="text/css">
+		html
+		{
+			background-image: url('../Images/ubuntu.png');	
+		}
+		
+        #carre 
+		{
+			background-color: #6495ed;
+			width:100px;
+			height:100px;
+			border:solid 1px;
+			position:absolute;
+			left:225px;
+			top:120px;
+        }
+		label
+		{
+			color:#6495ed;
+			font-weight:bold;
+		}
+		#titre
+		{
+			width:316px;
+			height:30px;
+			background-color:#6495ed;
+			color:white;
+			text-align:center;
+			padding-top:10px;
+			border: 1px solid black;
+		}
+        
+    </style>
+	
+	<script type="text/javascript">
+		function validerCarre()
+		{
+			
+			var x = document.getElementById('x');			
+			var y = document.getElementById('y');			
+			var z = document.getElementById('z');	
+			
+			if(	   isNaN(Number(x.value)) || Number(x.value) <= 0
+				|| isNaN(Number(y.value)) || Number(y.value) <= 0
+				|| isNaN(Number(z.value)) || Number(z.value) <= 0)
+			
+				document.getElementById('carre').style.backgroundColor = "#e10000";
+			else
+				document.getElementById('carre').style.backgroundColor = "lightgreen";
+			
+				
+			return false;
+		}
+	</script>
+</head>
+
+<body style="font: 80% sans-serif" >
+
+	<div>
+		<a href="javascript:history.go( -1 )"><img src="../Images/retour.ico" alt="Validator" /></a>
+		<br />
+		<br />
+
+	<div id="titre">
+		Veuillez entrer <strong>3</strong> valeurs entières
+	</div>
+	
+	<div id="form">
+			<p>
+				<label for="x">x: </label>
+				<input type="text" name="x" id="x" />
+			</p>
+			<p>
+				<label for="y">y: </label>
+				<input type="text" name="y" id="y" />
+			</p>
+			<p>
+				<label for="z">z: </label>
+				<input type="text" name="z" id="z" />
+			</p>
+			<p>
+				<button onClick="validerCarre()">valider</button>
+			</p>
+	</div>
+		
+	
+	
+
+	
+	<div id="carre">
+	</div>
+	
+	<br />
+	<br />
+	<img src="../Images/validator.png" alt="Validator" />
+	</div>
+</body>
+</html>
+

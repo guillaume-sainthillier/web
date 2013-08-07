@@ -1,0 +1,7 @@
+default noarea.html
+rect orangearea.html 50,0 200,50
+rect yellowarea.html 0,0 50,100
+rect bluearea.html 50,50 200,100
+poly redarea.html 300,0 350,0 450,100 200,100
+poly purplearea.html 200,0 300,0 200,100
+

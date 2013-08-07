@@ -1,0 +1,112 @@
+html
+{
+	background-color:#6E6E6E; /* On commence par creer un fond gris */
+	margin:0px;
+}
+
+body
+{
+	width:640px; /*Puis on aligne la largeur du body à la largeur de la bannière */
+	margin-left:auto; /* On centre ça sur la page */
+	margin-right:auto;
+	margin-bottom:5%;
+	margin-top:0px;
+	font-family:"Trebuchet ms"; /* On adapte la police à celle du screen :) */
+	font-size:10pt;	
+	/* <=> margin : 0px auto 5% auto */
+}
+#content
+{
+	color:#333333; /* Couleur de la police noire en général */
+	background-color:white;/* Le body entier aura un fond blanc */	
+}
+
+/*Bannière*/
+#header
+{
+	margin:0px;
+	height:258px;
+	background-image: url('../Images/eglise.jpg');
+}
+
+/*My Page et Toulouse ,... */
+#header  h1, #header h2
+{
+	text-align:center;	
+	font-style:italic;
+	position: relative;
+	top: 65%;
+	right:10px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#header h1
+{
+	font-size:35pt;
+	right:20px; /*Pour aligner le début de la phrase à celle du bas */
+}
+
+#header h2
+{
+	font-size: 14pt;
+}
+
+a
+{
+	color:#333333; /* Les liens sont gris */
+}
+
+
+#menu ul
+{
+	margin:0px;
+	padding:0px;
+}
+#menu li
+{
+	width:128px;
+	height:52px;
+	background-image:url('../Images/img4.jpg');
+	float:left;
+	list-style-type: none;
+	text-align:center;
+	
+}
+#menu li a
+{
+	font-weight:bold;
+	font-size:14pt;
+	position: relative;
+	top: 16px;
+	text-decoration:none;
+}
+
+.retour
+{
+	position:absolute;
+	left:22%;
+	top:25px;
+}
+
+#bonus
+{
+	font-size:12pt;
+	background-color:white;
+	width:640px;
+	height:42px;
+	border: thin solid black;	
+	margin-top: 10px;
+	padding-top:2px;
+	padding-left:5px;
+}
+#bonus img
+{
+	padding-top:5px;
+	padding-right:7px;
+	float:right;
+}
+#bonus a
+{
+	text-decoration:none;
+}

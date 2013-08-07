@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>TP8 Internet</title>
+    <meta name="generator" content="CSE HTML Validator Professional (http://www.htmlvalidator.com/)" />
+    <style type="text/css">
+.menu a{
+color: #000080;
+font-weight: bold;
+text-decoration: none;
+}
+.menu a:hover{
+color: yellow;
+font-weight: bold;
+}
+.menuBar{
+background-color: #9999FF;
+position: absolute;
+top: 40px;
+left: 0;
+height: 15;
+z-index: 1;
+padding: 4px;
+}
+        
+.menuTrigger{
+font: 10pt Verdana, sans-serif;
+color: #000099;
+font-weight: bold;
+background-color: #9999FF;
+position: absolute;
+top: 40px;
+padding: 4px;
+width: 100;
+height: 15;
+z-index: 2;
+cursor: pointer;
+cursor: hand;
+
+}
+.menu{
+font: 8pt Verdana, sans-serif;
+color: #000080;
+font-weight: bold;
+background-color: #CCCCFF;
+position: absolute;
+top: 60px;
+padding: 4px;
+width: 300;
+visibility: hidden;
+z-index: 2;
+}
+
+#valid
+{
+	position:relative;
+	top:200px;
+}
+        
+    </style>
+    <script type="text/javascript"> 
+		function afficher(pNom)
+		{
+			document.getElementById(pNom).style.visibility = "visible";
+			var nomMenu = "";
+			if(pNom == "mnu1")
+				nomMenu = "Menu1";
+			if(pNom == "mnu2")
+				nomMenu = "Menu2";
+			if(pNom == "mnu3")
+				nomMenu = "Menu3";
+				
+			document.getElementById(nomMenu).style.color = "yellow";
+		}
+		
+		function cacher(pNom)
+		{
+			document.getElementById(pNom).style.visibility = " hidden ";
+			
+			var nomMenu = "";
+			if(pNom == "mnu1")
+				nomMenu = "Menu1";
+			if(pNom == "mnu2")
+				nomMenu = "Menu2";
+			if(pNom == "mnu3")
+				nomMenu = "Menu3";
+				
+			document.getElementById(nomMenu).style.color =  "#000080";
+		}
+
+    </script>
+
+</head>
+
+<body style="font: 80% sans-serif" >
+
+	<div>
+		<a href="javascript:history.go( -1 )"><img src="../Images/retour.ico" alt="Validator" /></a>
+	
+		<div id="Menu1" class="menuTrigger" style="left:100px" onMouseOver="afficher('mnu1')" onMouseOut="cacher('mnu1')">Menu1</div>
+		<div id="Menu2" class="menuTrigger" style="left:300px" onMouseOver="afficher('mnu2')" onMouseOut="cacher('mnu2')">Menu2</div>
+		<div id="Menu3" class="menuTrigger" style="left:500px" onMouseOver="afficher('mnu3')" onMouseOut="cacher('mnu3')">Menu3</div>
+		
+		<div id="mnu1" style="left:100px; visibility:hidden;"  onMouseOver="afficher('mnu1')" onMouseOut="cacher('mnu1')" class="menu">	
+			<p>Opt 1</p>
+			<p>Opt 2</p>
+			<p>Opt 3</p>
+			<p>Opt 4</p>
+		</div>
+		
+		<div id="mnu2" style="left:300px" onMouseOver="afficher('mnu2')" onMouseOut="cacher('mnu2')" class="menu">
+			<p>Opt 1</p>
+			<p>Opt 2</p>
+			<p>Opt 3</p>
+			<p>Opt 4</p>
+		</div>
+		
+		<div id="mnu3" style="left:500px"  onMouseOver="afficher('mnu3')" onMouseOut="cacher('mnu3')"class="menu">
+			<p>Opt 1</p>
+			<p>Opt 2</p>
+			<p>Opt 3</p>
+			<p>Opt 4</p>
+		</div>
+		
+		
+		<img id="valid" src="../Images/validator.png" alt="Validator" />
+	</div>
+</body>
+</html>
+

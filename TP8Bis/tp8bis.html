@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>TP4 Internet</title>
+    <meta name="generator" content="CSE HTML Validator Professional (http://www.htmlvalidator.com/)" />
+	
+	
+      <link rel="stylesheet" type="text/css" href="design.css"/>
+
+ 
+
+	<script src="scripts/prototype.js" type="text/javascript"></script>
+    <script src="scripts/scriptaculous.js" type="text/javascript"></script>
+	
+	<script type="text/javascript">
+
+	function lancement() 
+	{
+		 new Draggable('poulet',{revert:true } ); //On créé les images draggable à partir des IDs
+		 new Draggable('sapin', {revert:true } );
+		 
+		
+		Droppables.add('animal', 
+		{
+			
+			accept: 'element', //Images que l'on peut placer dans le carré animal
+			hoverclass: 'panierhover', 
+			//onHover: hoverCarreAnimal,
+			onDrop: carreAnimal //Fonction appelée lorsque un element est lâché dans le carré animal
+				
+		});
+		
+		Droppables.add('vegetal', 
+		{
+			accept: 'element', //Images que l'on peut placer dans le carré animal
+			hoverclass: 'panierhover', 
+			onDrop: carreVegetal //Fonction appelée lorsque un element est lâché dans le carré animal
+				
+		});
+		
+		
+	}
+	
+	/*
+	function hoverCarreAnimal(Draggable, Droppable, Pourcentage_recouvrement)
+	{	
+		
+		//Droppable : animal/vegetal
+		if(		(Draggable.id == 'sapin' && Droppable.id == 'animal')
+			||	(Draggable.id == 'poulet' && Droppable.id == 'vegetal')    )
+			document.getElementById(Droppable.id).style.backgroundColor = "red";
+		else
+			document.getElementById(Droppable.id).style.backgroundColor = "#ffffe0";
+	}
+	*/
+	
+	function carreAnimal(dragged, dropped) //Rappel : fonction utilisée lorsque l'element est LACHE dans le carré.
+	//Ne pas toucher au prototype de la fonction
+	{
+		$(dropped.id).highlight(); //On met en surbrillance le carré 
+		if(dragged.id == 'poulet')
+			dropped.innerHTML = dropped.innerHTML + "<br/>" + dragged.innerHTML; //Saut de ligne entre chaque elements
+		else		
+			dropped.innerHTML = dropped.innerHTML + '<br/><font color="red">' + dragged.innerHTML + "</font>"; //On met la couleur rouge sur l'element dropé
+			
+		document.getElementById('animal').style.height = (parseInt(document.getElementById('animal').clientHeight)+20)+'px'; //On augmente la taille du carré
+		document.getElementById('animal').style.backgroundColor = "#ffffe0";
+		
+	}
+	
+	function carreVegetal(dragged, dropped) //Rappel : fonction utilisée lorsque l'element est LACHE dans le carré.
+	//Ne pas toucher au prototype de la fonction
+	{
+		$(dropped.id).highlight(); //On met en surbrillance le carré 
+		if(dragged.id == 'sapin')
+			dropped.innerHTML = dropped.innerHTML + "<br/>" + dragged.innerHTML; //Saut de ligne entre chaque elements
+		else		
+			dropped.innerHTML = dropped.innerHTML + '<br/><font color="red">' + dragged.innerHTML + "</font>"; //On met la couleur rouge sur l'element dropé
+			
+		document.getElementById('vegetal').style.height = (parseInt(document.getElementById('vegetal').clientHeight)+20)+'px'; //On augmente la taille du carré
+		
+	}
+	</script>
+
+</head>
+
+<body style="font: 80% sans-serif" onLoad="lancement()">
+
+	<div>
+		<h1><a href="javascript:history.go( -1 )"><img src="../Images/retour.ico" alt="Validator" /></a>TP8Bis script</h1>
+		
+			<div id="elements">
+			
+				Elements à classer: <br /><br />
+				
+				<div class="element" id="poulet">
+					poulet
+				</div>
+				
+				<br />
+				
+				<div class="element" id="sapin">
+					sapin
+				</div>
+			</div>
+			
+		<div id="paniers">
+
+			Paniers: <br /><br />
+			
+			<div class="panier" id="animal">
+				Animaux: 
+			</div>
+			
+			<br />
+			
+			<div class="panier" id="vegetal">
+				Plantes: 
+			</div>
+		</div>
+
+		<img id="valid" src="../Images/validator.png" alt="Validator" />
+	</div>
+
+</body>
+</html>

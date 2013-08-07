@@ -1,0 +1,133 @@
+html
+{
+	width:760px;
+	margin-left:auto;
+	margin-right:auto;
+	background-image: url('../Images/blocnote.png');
+	background-repeat:no-repeat;
+}
+
+a
+{
+	text-decoration: none;
+	color:#6495ed;
+}
+
+h3
+{
+	color: #6495ed;
+	text-align:center;
+}
+
+ul
+{
+	position:relative;
+	right:5px;
+}
+
+li
+{
+	list-style-type: none;
+}
+
+hr
+{
+	color:red;
+}
+
+#retour
+{
+	position :absolute;
+	top:200px;
+	left:10px;
+}
+
+#menu ul
+{
+	margin-top:5%;
+	margin-left:30%;
+}
+
+#menu ul li a
+{
+	width:122px;
+	height:30px;
+	border:1px solid black;
+	float:left;
+	padding-top:10px;
+	background-color:white;
+	text-align:center;
+	
+}
+
+#contenu
+{
+	padding-top:125px;
+	margin-left:132px;
+}
+
+#portrait
+{
+	border:2px solid black;
+	float:right;
+}
+
+#justin
+{
+	font-family:"Century";
+	position:absolute;
+	top:235px;
+	left:840px;
+	font-size:20pt;
+	color:red;
+}
+
+#dates
+{
+	float:left;
+}
+
+#date2
+{
+	padding-left:40px;
+}
+
+#formation
+{
+	float:right;
+	padding-right:150px;
+}
+
+.titre
+{
+	border:1px solid black;
+	height:50px;
+	width:300px;
+	padding-bottom:20px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:20px;
+}
+
+.lien
+{
+	margin-left:200px;
+}
+
+.matieres
+{
+	margin-left:178px;
+}
+
+#retour2
+{
+	position:relative;
+	top:100%;
+	left:3%;
+}
+
+body > img
+{
+	position:relative;
+	left:150px;
+}

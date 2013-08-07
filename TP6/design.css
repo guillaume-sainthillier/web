@@ -1,0 +1,91 @@
+body
+{
+	width:80%; /* Largeur égale à 80% de l'ecran */
+	margin-left:10%; /* 10 % de marge à droite et à gauche */
+	margin-right:10%;
+	font-family:sans-serif;
+}
+
+a
+{
+	color:blue;
+	text-decoration:none; /* On ne souligne pas */
+}
+
+a:hover
+{
+	background-color:yellow;
+}
+#menu ul
+{
+	padding:0px;
+	margin:0px;
+}
+
+#menu li
+{	
+	float:left;
+	border:1px solid black;
+	width:33%;
+	height:70px;
+	background-color:#00a0c8;
+	list-style-type: none; /* On n'affiche pas les points devant les li */
+}
+
+#menu li:hover
+{
+	background-color:#00dcc8;
+}
+
+#menu li p
+{
+	text-align:center;
+	position:relative;
+	top:15%; /* On centre verticalement */
+}
+#menu a
+{
+	color:white;
+	font-weight:bold;
+}
+
+#menu a:hover
+{
+	background-color:transparent;
+}
+
+.name
+{
+	margin-top:90px;
+	text-align:center;
+}
+h1
+{
+	font-size:14pt;
+}
+
+#portrait
+{
+	float:right;
+	margin-right:15px;
+}
+
+em
+{
+	color:red;
+}
+
+dt
+{
+	font-weight:bold;
+}
+
+#body li
+{
+	list-style: circle; /* On n'affiche pas les points devant les li */
+}
+
+.retour:hover
+{
+	background-color:transparent;
+}

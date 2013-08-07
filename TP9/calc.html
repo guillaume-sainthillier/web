@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>MUPAD 6.0</title>
+	<meta http-equiv="content-type" 
+		content="text/html;charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="design_calc.css" />
+	
+	<script type="text/javascript">
+		function ajouter(valeur) //Touche 0-9 , + , - , * ,/ , .
+		{
+			var doc = document.getElementById('resultat').value;
+			
+			if(doc != "Entrez les nombres ici") //S'il y a déjà des chiffre à traiter on ne fait que rajouter la valeur
+			{				
+				
+				if(valeur == "+" || valeur == "-" || valeur == "*" || valeur == "/")
+				{
+					document.getElementById('estCalcule').value = "0";
+					if(doc.length == 0) //Si la personne clique directement sur un +,-,*,/ il faut mettre la valeur 0 par défaut avant
+					{
+						document.getElementById('resultat').value = "0";
+					}
+				}
+				
+				document.getElementById('resultat').value = doc + valeur; //Puis dans tous les cas on ajoute la valeur dans le champ
+			}else
+			{
+				if(valeur == "+" || valeur == "-" || valeur == "*" || valeur == "/")//Si c'est le même cas que plus haut
+				{					
+					document.getElementById('resultat').value = "0" + valeur;					
+				}else
+				{
+					document.getElementById('resultat').value = valeur; //Sinon on ajoute simplement la première valeur du champ de saisie
+				}
+			}
+			return false;
+		}
+		
+		
+		function reset() //Touche C
+		{
+			document.getElementById('resultat').value = "Entrez les nombres ici";
+			document.getElementById('estCalcule').value = "0";
+			return false;
+		}
+		
+		function calculer() //Touche = 
+		{
+			if(document.getElementById("resultat").value != "Entrez les nombres ici") //Petite vérif pour les malins
+			{
+				document.getElementById('estCalcule').value = "1";
+				//FIXME : problème avec les floats
+				verifChiffre2();				
+				document.getElementById('resultat').value = eval(document.getElementById('resultat').value);
+				
+			}
+			
+			return false;
+		}
+		
+		function verifChiffre2() //Cas du readonly non activé , concerne TOUTES les touches du clavier
+		{
+			if(document.getElementById("changement").innerHTML != "Enlever le readonly du calcul &gt; ") // &gt; = >
+			{
+				var val = document.getElementById("resultat").value;
+				var expression = "0123654789/*-+.";
+				var finalExp = "";
+				
+				for( var i=0; i<val.length; i++) //On compare lettre à lettre les lettres du champ de saisies avec la liste des lettres valides
+				{
+					for(var j=0; j<expression.length; j++)
+					{
+						if(val[i] == expression[j])
+						{
+							//alert(expression[j]); //FIXME : Problème de flottant '.' non reconnu
+							finalExp = finalExp + expression[j];
+						}
+					}				
+				}
+				document.getElementById("resultat").value = finalExp; //Puis on remplace tout par la bonne expression
+			}
+		}
+		
+		function viderPhrase() //Lorsque la souris clique dans la zone du champ de saisie
+		{			
+			if(document.getElementById("resultat").value == "Entrez les nombres ici")
+				document.getElementById("resultat").value = "";
+
+			return false;
+		}
+		
+		function remettrePhrase()//Lorsque la souris clique ailleur que dans la zone du champ de saisie après avoir déjà cliqué dedans
+		{
+			if(document.getElementById("resultat").value == "" )
+				document.getElementById("resultat").value = "Entrez les nombres ici";
+
+			return false;
+		}
+		
+		function enlever() //Touche <-
+		{
+			if(document.getElementById("estCalcule").value == "0") // On n'enleve le résultat que si le type a pas cliqué sur ' = ' , 
+			//car le résultat calculé ne peut pas être enlevé (cf calc.exe)
+			{
+				var element =  document.getElementById("resultat").value;
+				
+				if(element != "Entrez les nombres ici")
+				{
+					if(element.length <= 1 )
+					{
+						document.getElementById("resultat").value = "Entrez les nombres ici";
+					}else
+					{
+						document.getElementById("resultat").value = "";
+						
+						for(var i =0;i < element.length -1;i++)
+						{
+							document.getElementById("resultat").value = document.getElementById("resultat").value + element[i]; //On recopie tout jusqu'à
+							//L'avant dernière lettre
+						}
+					}
+				}
+			}
+
+			return false;
+		}
+		
+		function memoirePlus() //Touche M+
+		{	
+			if(!isNaN(document.getElementById("resultat").value )) // isNan(123) = false, isNan("bonjour") = true
+			{
+				//FIXME : Problème de flottant pour changer.
+				document.getElementById("valeurMem").value = 
+				parseFloat(parseFloat(document.getElementById("valeurMem").value) + parseFloat(document.getElementById("resultat").value));
+				
+				document.getElementById("memoire").style.visibility = "visible";//On affiche le petit M rouge pour signaler que la mémoire est "remplie" d'un nombre			
+			}
+			return false;
+		}
+		
+		function memoireMoins()//Touche M- (idem que memoirePlus avec des soustractions à la place)
+		{	
+			if(!isNaN(document.getElementById("resultat").value ))
+			{
+				document.getElementById("valeurMem").value = 
+				parseFloat(parseFloat(document.getElementById("valeurMem").value) - parseFloat(document.getElementById("resultat").value));
+				document.getElementById("memoire").style.visibility = "visible";
+				document.getElementById("memoire").style.color = "red";				
+				
+			}
+			return false;
+		}
+		
+		function clearMem() //Touche MC
+		{
+			document.getElementById("valeurMem").value = "0";
+			document.getElementById("memoire").style.visibility = "hidden"; //On cache le M rouge du coup vu qu'on a "vidé" la mémoire
+
+			return false;
+		}
+		
+		function afficherMem() //Touche MR
+		{
+			document.getElementById("resultat").value = document.getElementById("valeurMem").value;		
+			
+			return false;
+		}
+		
+		function ecrire() //Bouton Go !
+		{
+			if(document.getElementById("changement").innerHTML == "Enlever le readonly du calcul &gt; ")
+			{
+				document.getElementById("resultat").removeAttribute("readonly"); //Supprime l'attribut readOnly du champ de saisi
+				document.getElementById("changement").innerHTML = "Remettre le readonly du calcul &gt; ";
+			}else
+			{
+				document.getElementById("resultat").setAttribute("readOnly","readOnly"); //Rajoute readOnly="readOnly" à la balise du champ de saisie
+				document.getElementById("changement").innerHTML = "Enlever le readonly du calcul &gt; ";
+			}
+			return false;
+		}	
+	</script>
+</head>
+
+<body>	
+	<a href="javascript:history.go( -1 )"><img src="../Images/retour.ico" alt="Validator" /></a>
+	<span id="changement">Enlever le readonly du calcul > </span><button value="Go !" onClick="return ecrire();">Go !</button>
+	<div id="contenu">
+		<!---  onblur="remettrePhrase(); -->
+		<div id="calcul" onkeypress="verifChiffre2()" >
+			<input id="resultat" readonly="readonly" type="text" value="Entrez les nombres ici" onfocus="return viderPhrase();" onblur="remettrePhrase();"/><br />
+			<button class="bouton" name="MC" value="MC" title="Reinitialiser la mémoire à 0" onClick="return clearMem();" >MC</button>
+			<button class="bouton" name="7" value="7" onClick="return ajouter(this.value);" >7</button>
+			<button class="bouton" name="8" value="8" onClick="return ajouter(this.value);" >8</button>
+			<button class="bouton" name="9" value="9" onClick="return ajouter(this.value);" >9</button>
+			<button class="bouton" name="/" value="/" onClick="return ajouter(this.value);" >/</button>
+			
+			<button class="bouton" name="MR" value="MR" title="Affiche le contenu de la mémoire" onClick="return afficherMem();" >MR</button>
+			<button class="bouton" name="4" value="4" onClick="return ajouter(this.value);" >4</button>
+			<button class="bouton" name="5" value="5" onClick="return ajouter(this.value);" >5</button>
+			<button class="bouton" name="6" value="6" onClick="return ajouter(this.value);" >6</button>
+			<button class="bouton" name="*" value="*" onClick="return ajouter(this.value);" >*</button>
+	
+			<button class="bouton" name="M-" value="M-" title="Enlève la valeur courante à la mémoire" onClick="return memoireMoins();" >M-</button>
+			<button class="bouton" name="1" value="1" onClick="return ajouter(this.value);" >1</button>
+			<button class="bouton" name="2" value="2" onClick="return ajouter(this.value);" >2</button>
+			<button class="bouton" name="3" value="3" onClick="return ajouter(this.value);" >3</button>
+			<button class="bouton" name="-" value="-" onClick="return ajouter(this.value);" >-</button>			
+			<button class="bouton" name="M" value="M" title="Rajoute la valeur courante à la mémoire"  onClick="return memoirePlus();" >M+</button>			
+			<button id="bouton_0"  name="0" value="0" onClick="return ajouter(this.value);">0</button>
+			<button class="bouton" name="." value="." onClick="return ajouter(this.value);" >.</button>
+			<button class="bouton" name="+" value="+" onClick="return ajouter(this.value);" >+</button>
+			<input  type="hidden"  id="estCalcule" value="0" /> 
+			<input  type="hidden"  id="valeurMem"  value="0" /> 
+		</div>
+		
+		<div id="options">
+
+			<span id="memoire" style="visibility:hidden ;color:red">M</span><br />
+			<button class="bouton" name="retour" value="retour" onClick="return enlever();" >&larr;</button>
+			<button class="bouton" name="C" value="C" onClick="return reset();" >C</button>
+			<button id="bouton_egal" name="=" value="=" onClick="calculer()" >=</button>
+					
+		</div>
+		
+	</div>
+	
+</body>
+</html>

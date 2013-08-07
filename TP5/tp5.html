@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
+
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Les Images Maps</title>
+
+</head>
+	<body>
+		<p>
+			<img usemap="#mymap" src="../Images/shapes1.gif" alt="map"/>
+		</p>
+
+
+	<p>
+		<map id="mymap" name="mymap"> <!-- map = zone générale -->
+		<!--  area zone précise -->	
+		<area shape="rect" coords="0,0 50,100" href="http://webetud.iut-blagnac.fr/" target="blank" alt="zone jaune" />
+		<area shape="rect" coords="50,50 200,100" href="http://validator.w3.org/" target="blank" alt="zone bleue" />
+		<area shape="poly" coords="200,0 200,100 300,0" href="http://www.meetic.fr/" target="blank" alt="zone rose" />
+
+		</map>
+	</p>
+
+	<p>
+		<br />Seules les zones jaune ,bleue et roses sont activées.
+	</p>
+	</body>
+	
+</html>
+

@@ -1,0 +1,94 @@
+html
+{
+	background-image: url('Images/debian.png');
+	padding-top:5%;
+}
+body
+{
+	width:798px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#banniere
+{
+	height:100px;	
+}
+
+#menu ul
+{
+	width:100%;
+	padding:0px;
+	margin-left:2px;
+	
+}
+#menu li
+{
+	width:9.7%;
+	height:40px;
+	float:left;
+	border: 1px outset silver;
+	list-style-type: none;
+	text-align:center;
+}
+
+.menuCache
+{
+	position:absolute;
+	background-color:black;
+	top:0px;
+	left:0px;
+	color:white;
+	border:thin solid #6495ed;
+	width:200px;
+	height:110px;
+	visibility:hidden;
+	text-align:center;
+}
+
+#menu a,.lien
+{
+	position:relative;
+	top:10px;
+}
+
+
+#main
+{
+	border:2px solid #6495ed;
+	color: #545454;
+	background-color:black;
+	padding:15px;
+}
+
+
+h1
+{
+	color: red;
+	text-align:center;
+}
+
+#pied_page
+{
+	border:1px solid #6495ed;
+	color: #545454;
+	background-color:black;
+	margin-top:20px;
+	padding-left:1%;
+}
+
+#pied_page img
+{
+	float: right;
+	margin-top : 5px;
+}
+
+a,hr,.etoile,.lien
+{
+	color:#6495ed;
+	text-decoration:none;
+}
+a:hover,.lien:hover
+{
+	color : red;
+}
