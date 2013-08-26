@@ -18,4 +18,4 @@ Vous trouverez ainsi dans l'ordre:
   - TP9 Calculatrice: Développement d'une calculatrice en JavaScript
 
 
-Retrouvez la procédure d'installation de l'application sur http://guillaume-sainthillier.github.io/tp-web-blagnac/
+Retrouvez la procédure d'installation de l'application sur http://guillaume-sainthillier.github.io/web/
