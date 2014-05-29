@@ -17,9 +17,5 @@ Vous trouverez ainsi dans l'ordre:
   - TP9 PHP: Découverte du PHP
   - TP9 Calculatrice: Développement d'une calculatrice en JavaScript
 
-### Démo
-Une démonstration en ligne du site est disponible sur http://web.sainthillier.fr
-
-
 ### Installation
 Retrouvez la procédure d'installation de l'application sur http://guillaume-sainthillier.github.io/web/
